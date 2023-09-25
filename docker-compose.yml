@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  blog-rest-api:
+    image: maldini12/blogs-app:v1
+    build:
+      context: .
+    ports:
+      - '8081:8081'
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - springapimysql-net
+    environment:
+      RDS_HOSTNAME: mysql
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/blogs
+      RDS_PORT: 3306
+      RDS_DB_NAME: blogs
+      RDS_USERNAME: root
+      RDS_PASSWORD: dummyBlog
+      #compose-postgres name db user pass
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/blogs
+#      - SPRING_DATASOURCE_USERNAME=root
+#      - SPRING_DATASOURCE_PASSWORD=dummyBlog
+#       #Hibernate ddl auto (create, create-drop, validate, update)
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_DATABASE=blogs
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=dummyBlog
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - springapimysql-net
+volumes:
+  db:
+
+networks:
+  springapimysql-net:

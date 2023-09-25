@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    ## Docker Config:
+    #url: jdbc:mysql://localhost:3306/blogs
+    #username: root
+    #password: dummyBlog
+    ## Azure Config:
+    url: jdbc:mysql://${RDS_HOSTNAME:blog-mysqldb-command-line}:${RDS_PORT:3306}/${RDS_DB_NAME:blogs}?serverTimezone=UTC
+    username: ${RDS_USERNAME:rootblog@blog-mysqldb-command-line}
+    password: ${RDS_PASSWORD:dummyBlog@01}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+# for docker:
+# docker run -d  --name mysqldb -e MYSQL_ROOT_PASSWORD=mypassword -e MYSQL_DATABASE=blogs  -e MYSQL_USER=bloguser  -e MYSQL_PASSWORD=dummyblog mysql:8.0
