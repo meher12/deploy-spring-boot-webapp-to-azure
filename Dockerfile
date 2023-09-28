@@ -7,4 +7,4 @@ COPY  /build/libs/azure-blog-app.jar /app/azure-blog-app.jar
 ENTRYPOINT ["java", "-jar","/app/azure-blog-app.jar"]
 
 # Make port 5000 available to the world outside this container
-EXPOSE 8081
+EXPOSE 8000

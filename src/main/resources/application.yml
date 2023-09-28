@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8000
 spring:
   datasource:
     ## Docker Config:
@@ -21,3 +21,4 @@ spring:
 
 # for docker:
 # docker run -d  --name mysqldb -e MYSQL_ROOT_PASSWORD=mypassword -e MYSQL_DATABASE=blogs  -e MYSQL_USER=bloguser  -e MYSQL_PASSWORD=dummyblog mysql:8.0
+# az webapp create --name spring-mysql-v1  --plan maher-service-plan --resource-group maher-rg  --multicontainer-config-type compose --multicontainer-config-file docker-compose.yml
