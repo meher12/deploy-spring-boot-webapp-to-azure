@@ -10,7 +10,7 @@ spring:
   jpa:
     properties:
      hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
       dialect: org.hibernate.dialect.H2Dialect
     show-sql: true
   h2:

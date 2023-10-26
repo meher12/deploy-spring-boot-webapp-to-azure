@@ -77,4 +77,12 @@ Learn how to create an Azure MySQL database using the Azure Command-Line Interfa
 
 ## Step 13: - Multi-container using Docker Compose in Azure Web App for Containers
 
+# Unit Testing - Mocking with Mockito
+
+## Spring Boot Unit Testing - Mocking with Mockito:
+   1. Service test: 
+      1. BlogServiceMockBeanTest class (MockBean: @MockBean instead of @Mock AND @Autowired instead of @InjectMocks)
+      2. BlogServiceTest class (Create Mock for BlogRepository And Inject Mock into BlogService)
+      3. BlogServiceDBTest class (Using @Sql)
+
 

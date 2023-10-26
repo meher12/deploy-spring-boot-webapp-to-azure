@@ -158,6 +158,9 @@ public class BlogServiceMockBeanTest {
 
         Blog result = blogService.deleteBlog(blogId);
         assertNotNull(result);
+
+        Optional<Blog> deletedBlg = blogRepository.findById(blogId);
+        assertTrue(deletedBlg.isPresent());
     }
 
     @Test
