@@ -2,14 +2,18 @@ server:
   port: 8000
 spring:
   datasource:
+    ## local config:
+    url: jdbc:mysql://localhost:3306/blogs
+    username: canarydb
+    password: Password@strong12
     ## Docker Config:
-    #url: jdbc:mysql://localhost:3306/blogs
-    #username: root
-    #password: dummyBlog
+#    url: jdbc:mysql://localhost:3306/blogs
+#    username: root
+#    password: dummyBlog
     ## Azure Config:
-    url: jdbc:mysql://${RDS_HOSTNAME:blog-mysqldb-command-line}:${RDS_PORT:3306}/${RDS_DB_NAME:blogs}?serverTimezone=UTC
-    username: ${RDS_USERNAME:rootblog@blog-mysqldb-command-line}
-    password: ${RDS_PASSWORD:dummyBlog@01}
+#    url: jdbc:mysql://${RDS_HOSTNAME:blog-mysqldb-command-line}:${RDS_PORT:3306}/${RDS_DB_NAME:blogs}?serverTimezone=UTC
+#    username: ${RDS_USERNAME:rootblog@blog-mysqldb-command-line}
+#    password: ${RDS_PASSWORD:dummyBlog@01}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -22,3 +26,4 @@ spring:
 # for docker:
 # docker run -d  --name mysqldb -e MYSQL_ROOT_PASSWORD=mypassword -e MYSQL_DATABASE=blogs  -e MYSQL_USER=bloguser  -e MYSQL_PASSWORD=dummyblog mysql:8.0
 # az webapp create --name spring-mysql-v1  --plan maher-service-plan --resource-group maher-rg  --multicontainer-config-type compose --multicontainer-config-file docker-compose.yml
+

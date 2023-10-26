@@ -25,4 +25,17 @@ public class BlogService {
     public Blog insertBlog(Blog blog) {
         return blogRepository.save(blog);
     }
+
+    public Blog updateBlog(Long blogId, Blog updatedBlog) throws Exception {
+        Blog _blog = blogRepository.findById(blogId).orElseThrow(() -> new Exception("Not found blog with id = " + blogId));
+        _blog.setTitle(updatedBlog.getTitle());
+        _blog.setDescription(updatedBlog.getDescription());
+        return blogRepository.save(_blog);
+    }
+
+    public Blog deleteBlog(Long blogId) throws Exception {
+      Blog deletedBlog =  blogRepository.findById(blogId).orElseThrow(()->new Exception("Not found blog with id = " + blogId));
+      blogRepository.deleteById(blogId);
+      return deletedBlog;
+    }
 }
