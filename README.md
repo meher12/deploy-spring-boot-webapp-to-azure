@@ -80,9 +80,17 @@ Learn how to create an Azure MySQL database using the Azure Command-Line Interfa
 # Unit Testing - Mocking with Mockito
 
 ## Spring Boot Unit Testing - Mocking with Mockito:
-   1. Service test: 
-      1. BlogServiceMockBeanTest class (MockBean: @MockBean instead of @Mock AND @Autowired instead of @InjectMocks)
-      2. BlogServiceTest class (Create Mock for BlogRepository And Inject Mock into BlogService)
-      3. BlogServiceDBTest class (Using @Sql and JdbcTemplate)
+### Service test: 
+1. BlogServiceMockBeanTest class (MockBean: @MockBean instead of @Mock AND @Autowired instead of @InjectMocks)
+2. BlogServiceTest class (Create Mock for BlogRepository And Inject Mock into BlogService)
+3. BlogServiceDBTest class (Using @Sql and JdbcTemplate)
+### MVC Controller test:
+   * BlogControllerTests class includes tests for all of the following HTTP requests:
+     - GET /api/v1/blogs
+     - GET /api/v1/blog/1
+     - POST /api/v1/create-blog
+     - PUT /api/v1/update-blog/1
+     - DELETE /api/v1/blog/1
+     - Using JsonPath library for querying and navigating JSON documents
 
 

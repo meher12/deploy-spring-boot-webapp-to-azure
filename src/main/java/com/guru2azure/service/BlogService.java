@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BlogService {
@@ -34,8 +35,19 @@ public class BlogService {
     }
 
     public Blog deleteBlog(Long blogId) throws Exception {
-      Blog deletedBlog =  blogRepository.findById(blogId).orElseThrow(()->new Exception("Not found blog with id = " + blogId));
-      blogRepository.deleteById(blogId);
-      return deletedBlog;
+        Blog deletedBlog = blogRepository.findById(blogId).orElseThrow(() -> new Exception("Not found blog with id = " + blogId));
+        blogRepository.deleteById(blogId);
+        return deletedBlog;
     }
+
+    public Boolean deleteBlogBoolean(Long blogId) throws Exception {
+        Blog blog = blogRepository.findById(blogId).orElseThrow(() -> new Exception("Not found blog with id = " + blogId));
+        if (blog == null) {
+            return false;
+        }
+        blogRepository.deleteById(blogId);
+        return true;
+
+    }
+
 }
