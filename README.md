@@ -27,20 +27,23 @@ This guide will walk you through the process of deploying a Spring Boot applicat
 * [Azure Web App for Containers documentation](https://docs.microsoft.com/en-us/azure/app-service/containers/)
 * [Docker Compose documentation](https://docs.docker.com/compose/)
 
-# Unit Testing - Mocking with Mockito
+## Spring Boot - Unit Testing - Mocking with Mockito
 
-## Spring Boot Unit Testing - Mocking with Mockito:
-### Service test: 
-1. BlogServiceMockBeanTest class (MockBean: @MockBean instead of @Mock AND @Autowired instead of @InjectMocks)
-2. BlogServiceTest class (Create Mock for BlogRepository And Inject Mock into BlogService)
-3. BlogServiceDBTest class (Using @Sql and JdbcTemplate)
-### MVC Controller test:
-   * BlogControllerTests class includes tests for all of the following HTTP requests:
-     - GET /api/v1/blogs
-     - GET /api/v1/blog/1
-     - POST /api/v1/create-blog
-     - PUT /api/v1/update-blog/1
-     - DELETE /api/v1/blog/1
-     - Using JsonPath library for querying and navigating JSON documents
+**Service test:**
+
+* BlogServiceMockBeanTest class (MockBean: `@MockBean` instead of `@Mock` AND `@Autowired` instead of `@InjectMocks`)
+* BlogServiceTest class (Create Mock for BlogRepository And Inject Mock into BlogService)
+* BlogServiceDBTest class (Using `@Sql` and JdbcTemplate)
+
+**MVC Controller test:**
+
+* BlogControllerTests class includes tests for all of the following HTTP requests:
+  * GET /api/v1/blogs
+  * GET /api/v1/blog/1
+  * POST /api/v1/create-blog
+  * PUT /api/v1/update-blog/1
+  * DELETE /api/v1/blog/1
+  * Using JsonPath library for querying and navigating JSON documents
+
 
 
