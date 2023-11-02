@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BlogService {
@@ -50,4 +49,12 @@ public class BlogService {
 
     }
 
+    public boolean checkIfBlogIsNull(Long id) throws Exception {
+        Blog blog = blogRepository.findById(id).orElseThrow(() -> new Exception("Not found blog with id = " + id));
+
+        if (blog != null) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -6,12 +6,14 @@ RDS_USERNAME - rootblog
 RDS_PASSWORD - dummyBlog@01
 
 We Must config Environment variables and app settings in Azure App Service:
+
 DOCKER_REGISTRY_SERVER_PASSWORD
 DOCKER_REGISTRY_SERVER_USERNAME
 SERVER_PORT
 RDS_PASSWORD
 RDS_USERNAME
 ## Create group, service plan and webapp through docker image:
+
 az group create --name container-rg --location westeurope
 az appservice plan create --name container-service-plan --resource-group container-rg --sku B1 --is-linux
 az webapp create --name blog-app-in-container --plan container-service-plan --resource-group container-rg --deployment-container-image-name maldini12/deploy-azure-spring-app
@@ -22,13 +24,16 @@ az webapp create --name spring-mysql-v2  --plan maher-service-plan --resource-gr
 
 
 ### To see App log:
+
 az webapp log tail --name blogs-application --resource-group rg-az-tn
 
 ### To connect cloud shell for mysql:
+
 mysql --host blog-mysqldb.mysql.database.azure.com --user rootblog -pdummyBlog@01
 mysql --host blog-mysqldb-command-line.mysql.database.azure.com --user rootblog@blog-mysqldb-command-line -pdummyBlog@01
 
 ### Create an Azure Database for MySQL server
+
 1- To use the commands, install the db-up extension. If an error is returned, ensure you have installed the latest version of the Azure CLI:
    az extension add --name db-up
 2- Create an Azure Database for MySQL server using the following command:
@@ -55,3 +60,5 @@ mysql --host blog-mysqldb-command-line.mysql.database.azure.com --user rootblog@
         "title": "Amazon Web Services",
         "description": "Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopted cloud, offering over 200 fully featured services from data centers globally. Millions of customers—including the fastest-growing startups"
     }
+
+

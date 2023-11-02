@@ -45,5 +45,10 @@ This guide will walk you through the process of deploying a Spring Boot applicat
   * DELETE /api/v1/blog/1
   * Using JsonPath library for querying and navigating JSON documents
 
+**Sql Script Test:**
+1. Add SQl to application.properties
+2. Inject SQl into test using @value
+3. Refactor @beforeeach and @AfterEach
+
 
 
